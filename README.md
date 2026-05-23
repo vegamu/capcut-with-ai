@@ -70,44 +70,10 @@ Chỉ khả dụng khi sử dụng mô hình **'gemini-3.1-pro-preview'**
 
 ### Yêu cầu Hệ thống:
 * **Hệ điều hành:** Windows 10 / 11.
-* **Công cụ bổ trợ:** Python 3.10+ (Đã thêm vào biến môi trường PATH), ứng dụng CapCut Desktop trên Windows.
+* **Công cụ bổ trợ:**
+  - Groq API key: Dùng cho tạo phụ đề nhanh (Tốc độ tạo phụ đề cho video dài 5 phút chỉ 5s)
+  - Gemini API key: Dùng để dịch phụ đề, viết lại kịch bản video
 
-### Các bước chuẩn bị nhanh:
-1. Tạo môi trường ảo Python `venv` trong thư mục dự án `capcut-with-ai`:
-   ```powershell
-   python -m venv venv
-   ```
-2. Kích hoạt môi trường ảo:
-   ```powershell
-   # Dành cho PowerShell
-   .\venv\Scripts\Activate.ps1
-   ```
-3. Cài đặt các gói phụ thuộc cần thiết:
-   ```powershell
-   pip install -e .
-   ```
-
-### ⚡ Khởi chạy Ứng dụng:
-* Bạn chỉ cần nhấp đúp chuột vào file **`Start.bat`** tại thư mục gốc của dự án. File script sẽ tự động nhận diện môi trường ảo và khởi chạy ứng dụng GUI **Capcut With AI** ngay lập tức mà không cần gõ lệnh!
-* Hoặc chạy bằng dòng lệnh thủ công:
-   ```powershell
-   python capcut-gui.py
-   ```
-
-### 📦 Đóng gói Ứng dụng thành tệp thực thi (.EXE):
-Bạn có thể dễ dàng biên dịch dự án thành ứng dụng chạy độc lập trên Windows bằng cách khởi chạy tập lệnh đóng gói **`build.bat`**. Ứng dụng hỗ trợ hai chế độ biên dịch nâng cao:
-1. **Đóng gói dạng Thư mục (Khởi động Siêu tốc - Khuyên dùng) ⚡**:
-   ```powershell
-   .\build.bat --onedir
-   ```
-   * *Ưu điểm:* Giải nén sẵn toàn bộ DLLs và tài nguyên nền tảng. Khi chạy tệp **`dist/CapCutWithAI/CapCutWithAI.exe`**, cửa sổ ứng dụng sẽ **khởi động tức thì (dưới 1 giây)**!
-2. **Đóng gói thành 1 Tệp duy nhất (Tiện chia sẻ) 📁**:
-   ```powershell
-   .\build.bat
-   ```
-   * *Đặc điểm:* Gom toàn bộ tài nguyên vào một file **`dist/CapCutWithAI.exe`** duy nhất. Khi khởi động sẽ mất khoảng 3-5 giây để Windows giải nén tạm thời ra bộ nhớ.
-
----
 
 ## 💡 Lưu ý An toàn Dữ liệu (Bảo vệ Dự án)
 
@@ -118,5 +84,3 @@ Bạn có thể dễ dàng biên dịch dự án thành ứng dụng chạy đ�
 
 ---
 
-  * `worker.py` - Trình quản lý chạy đa luồng `QThread`.
-* `src/capcutwithai/tools/` - Lõi xử lý sửa đổi cấu trúc dữ liệu dự án nháp CapCut.
